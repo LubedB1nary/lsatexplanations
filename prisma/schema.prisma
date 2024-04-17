@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:ariana12345@database-explanations.cr66eouuo1yz.us-east-2.rds.amazonaws.com:5432/mavera_lr_explanations_db"
+}
+
+model questions {
+  id                    Int     @id @default(autoincrement())
+  test                  Int?
+  section               Int?
+  question              Int?
+  section_type          String? @db.VarChar(255)
+  explanation_main      String?
+  answer_choice_a       String?
+  answer_choice_b       String?
+  answer_choice_c       String?
+  answer_choice_d       String?
+  answer_choice_e       String?
+  audio_explanation_url String?
+  test_image_url        String?
+  test_date             String? @db.VarChar(255)
+  question_type         String? @db.VarChar(255) // Add this line
+  correct_answer        String? @db.VarChar(1)   // Add this line
+}
