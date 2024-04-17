@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
+    "postbuilt": "node scripts/generate-sitemap.js",
     "start": "next start",
     "lint": "next lint"
   },
@@ -17,7 +18,8 @@
     "prisma": "^5.12.1",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^5.0.1"
+    "react-icons": "^5.0.1",
+    "sitemap": "^7.1.1"
   },
   "devDependencies": {
     "@types/node": "^20",
