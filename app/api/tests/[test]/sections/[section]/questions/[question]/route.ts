@@ -28,8 +28,9 @@ export async function GET(request: Request, { params }: { params: { test: string
         answer_choice_d: true,
         answer_choice_e: true,
         audio_explanation_url: true,
-        question_type: true, // Add this line
-        correct_answer: true, // Add this line
+        question_type: true,
+        correct_answer: true,
+        test_image_url: true, // Add this line
       },
     });
 

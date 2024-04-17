@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import SectionCard from '../components/SectionCard';
 import QuickJump from '../QuickJump';
 
+
 interface Section {
   section: number;
   section_type: string;
@@ -34,12 +35,12 @@ export default function TestSections() {
   return (
     <div className="bg-gray-background">
       {/* Navigation Bar */}
-      <nav className="bg-custom-gray">
+      <nav className="bg-gray-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <img className="h-10 w-auto" src="TutorRX_Logo.png" alt="Logo" />
+                <img className="h-10 w-auto" src="/TutorRX_Logo.png" alt="Logo" />
               </div>
               <div className="ml-4">
                 <a href="/" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
