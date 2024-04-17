@@ -21,7 +21,6 @@ interface Question {
   audio_explanation_url: string;
   question_type: string;
   correct_answer: string;
-  test_image_url: string;
 }
 
 export default function QuestionPage() {
@@ -58,12 +57,12 @@ export default function QuestionPage() {
   return (
     <div className="bg-gray-background">
       {/* Navigation Bar */}
-      <nav className="bg-gray-background">
+      <nav className="bg-custom-gray">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <img className="h-10 w-auto" src="/TutorRX_Logo.png" alt="Logo" />
+              <img className="h-10 w-auto" src="TutorRX_Logo.png" alt="Logo" />
               </div>
               <div className="ml-4">
                 <a href="/" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
@@ -84,22 +83,11 @@ export default function QuestionPage() {
       <div className="flex">
         <Sidebar />
         <div className="p-8 ml-64 w-full">
-          <div className="flex items-center mb-8">
-            {questionData.test_image_url && (
-              <img
-                src={questionData.test_image_url}
-                alt={`PT${questionData.test}`}
-                className="w-40 h-auto object-cover rounded-lg mr-8 "
-              />
-            )}
-            <div>
-              <h1 className="text-white text-4xl font-bold ml-4">
-                PT{questionData.test}, Section {questionData.section}, Question {questionData.question}
-              </h1>
-              <div className="mt-2 ml-4">
-                <p className="text-white text-lg">Question Type: {questionData.question_type}</p>
-              </div>
-            </div>
+          <h1 className="text-white text-4xl font-bold mb-8">
+            PT{questionData.test}, Section {questionData.section}, Question {questionData.question}
+          </h1>
+          <div className="mb-8">
+            <p className="text-white text-lg">Question Type: {questionData.question_type}</p>
           </div>
           <div className="bg-gray-800 p-6 rounded-lg mb-8">
             <div

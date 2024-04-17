@@ -93,7 +93,7 @@ export default function QuickJump() {
   };
 
   return (
-    <div className="bg-custom-gray shadow-xl rounded-lg p-6 mb-8 w-2/3 mx-auto ">
+    <div className="bg-custom-gray shadow-md rounded-lg p-6 mb-8 w-2/3 mx-auto ">
       <h2 className="text-xl font-bold mb-4 text-white flex justify-center">Quick Navigate</h2>
       <div className="md:flex md:space-x-4 space-y-4 md:space-y-0">
         <div className="md:w-1/3">
