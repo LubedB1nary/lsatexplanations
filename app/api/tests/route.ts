@@ -1,9 +1,10 @@
+// app/api/tests/route.ts
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
     const tests = await prisma.questions.findMany({
       select: {
@@ -12,7 +13,11 @@ export async function GET() {
         test_image_url: true,
       },
       distinct: ['test'],
+      orderBy: {
+        test: 'desc',
+      },
     });
+
     return NextResponse.json({ tests });
   } catch (error) {
     console.error('Error fetching tests:', error);

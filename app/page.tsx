@@ -1,5 +1,3 @@
-"use client";
-import { useEffect, useState } from 'react';
 import axios from 'axios';
 import TestCard from './TestCard';
 import QuickJump from './QuickJump';
@@ -10,21 +8,27 @@ interface Test {
   test_image_url: string;
 }
 
-export default function Home() {
-  const [tests, setTests] = useState<Test[]>([]);
+async function fetchTests(): Promise<Test[]> {
+  try {
+    const response = await axios.get('/api/tests');
+    const sortedTests = response.data.tests.sort((a: Test, b: Test) => b.test - a.test);
+    return sortedTests;
+  } catch (error) {
+    console.error('Error fetching tests:', error);
+    return [];
+  }
+}
 
-  useEffect(() => {
-    const fetchTests = async () => {
-      try {
-        const response = await axios.get('/api/tests');
-        const sortedTests = response.data.tests.sort((a: Test, b: Test) => b.test - a.test);
-        setTests(sortedTests);
-      } catch (error) {
-        console.error('Error fetching tests:', error);
-      }
-    };
-    fetchTests();
-  }, []);
+export async function generateStaticParams() {
+  const tests = await fetchTests();
+
+  return tests.map((test) => ({
+    test: test.test.toString(),
+  }));
+}
+
+export default async function Home({ params }: { params: { test: string } }) {
+  const tests = await fetchTests();
 
   return (
     <div className="bg-gray-background">
@@ -66,12 +70,17 @@ export default function Home() {
 
       {/* Test Cards */}
       <h1 className="text-white text-4xl font-bold mt-8 mb-8 text-center">Practice Tests</h1>
-      <div className='mx-10 mt-8 flex items-center '>
-          <QuickJump />
+      <div className="mx-10 mt-8 flex items-center">
+        <QuickJump />
       </div>
-      <div className=" grid grid-cols-1 md:grid-cols-4 gap-8 w-3/4 mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-3/4 mx-auto">
         {tests.map((test) => (
-          <TestCard key={test.test} test={test.test} testDate={test.test_date} testImageUrl={test.test_image_url} />
+          <TestCard
+            key={test.test}
+            test={test.test}
+            testDate={test.test_date}
+            testImageUrl={test.test_image_url}
+          />
         ))}
       </div>
     </div>
