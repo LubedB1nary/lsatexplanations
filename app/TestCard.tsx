@@ -14,7 +14,7 @@ export default function TestCard({ test, testDate, testImageUrl }: TestCardProps
           <img
             src={testImageUrl}
             alt={`PT${test}`}
-            className="w-full h-40 object-cover transition duration-300 ease-in-out transform hover:scale-105"
+            className="w-full h-auto object-cover transition duration-300 ease-in-out transform hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50"></div>
         </div>
