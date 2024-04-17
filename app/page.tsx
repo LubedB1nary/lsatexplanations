@@ -34,7 +34,7 @@ export default function Home() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <img className="h-8 w-8" src="/logo.svg" alt="Logo" />
+                <img className="h-10 w-auto" src="TutorRX_Logo.png" alt="Logo" />
               </div>
               <div className="ml-4">
                 <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
