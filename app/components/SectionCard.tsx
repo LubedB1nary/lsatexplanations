@@ -1,4 +1,4 @@
-import { FaBrain } from 'react-icons/fa';
+import { FcFinePrint, FcReading } from "react-icons/fc";
 import Link from 'next/link';
 
 interface SectionCardProps {
@@ -10,7 +10,8 @@ interface SectionCardProps {
 
 export default function SectionCard({ test, section, sectionType, questions }: SectionCardProps) {
   const getSectionIcon = (sectionType: string) => {
-    if (sectionType === 'Logical Reasoning') return <FaBrain />;
+    if (sectionType === 'Logical Reasoning') return <FcFinePrint />;
+    if (sectionType === 'Reading Comprehension') return <FcReading />;
     // if (sectionType === 'Reading Comprehension') return <FaBook />;
     // if (sectionType === 'Analytical Reasoning') return <FaChess />;
     // Placeholder icon
