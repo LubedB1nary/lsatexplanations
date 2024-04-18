@@ -59,7 +59,7 @@ export default function Sidebar() {
   return (
     <>
       <div
-        className={`fixed left-0 top-0 h-screen w-64 bg-gray-800 p-4 m-4 mt-20 rounded-xl transition-transform duration-300 ease-in-out ${
+        className={`fixed left-0 top-0 h-screen w-64 bg-custom-gray p-4 m-4 mt-20 rounded-xl transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -127,7 +127,7 @@ export default function Sidebar() {
       </div>
       {!isOpen && (
         <button
-          className="fixed left-0 top-4 bg-gray-800 text-white px-4 py-1 rounded-r mt-20"
+          className="fixed left-0 top-4 bg-custom-gray text-white px-4 py-1 rounded-r mt-20"
           onClick={toggleSidebar}
         >
           <FaChevronRight />
